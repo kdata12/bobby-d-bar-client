@@ -10,6 +10,97 @@
 
 <body>
   <!-- Nav Bar -->
+  <nav>
+    <ul>
+      <li>
+        <a href="../index.html">Home</a>
+      </li>
+      <li>
+        <a href="../contact/contact.html">Contact</a>
+
+      </li>
+      <li>
+        <a href="product.html">Product</a>
+      </li>
+      <li>
+        <button id="cart-btn">Cart</button>
+      </li>
+    </ul>
+  </nav>
+
+  <!-- Hero -->
+  <section id="hero">
+    <div>
+      <h1>At Bobby's D we offer the best bar food in the valley</h1>
+      <p></p>
+    </div>
+    <!-- img here -->
+  </section>
+
+  <!-- Cart -->
+  <aside id="cart" class="hidden">
+    <h2>Cart Items</h2>
+    <ul id="cart-items">
+    </ul>
+    <button id="calc-total">calculate total</button>
+    <p id="cart-total"></p>
+  </aside>
+
+  <!-- 3 popular products -->
+  <section id="popular-products">
+    <h1>Our most popular Items</h1>
+    <table>
+      <tr>
+        <th>Product</th>
+        <th>Price</th>
+        <th>Description</th>
+        <th>Quantity</th>
+        <th></th>
+      </tr>
+      <tr class="product">
+        <td>Product 1</td>
+        <td class="price" data-value="5">$5</td>
+        <td>A delicious item</td>
+        <td>
+          <select class="quantity">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+          </select>
+        </td>
+        <td><button class="add-to-cart">Add to Cart</button></td>
+      </tr>
+      <tr class="product">
+        <td>Product 2</td>
+        <td class="price" data-value="10">$10</td>
+        <td>A delicious item</td>
+        <td>
+          <select class="quantity">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+          </select>
+        </td>
+        <td><button class="add-to-cart">Add to Cart</button></td>
+      </tr>
+      <tr class="product">
+        <td>Product 3</td>
+        <td class="price" data-value="20">$20</td>
+        <td>A delicious item</td>
+        <td>
+          <select class="quantity">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+          </select>
+        </td>
+        <td><button class="add-to-cart">Add to Cart</button></td>
+      </tr>
+    </table>
+  </section>
+
+
+  <script src="product.js"></script>
 
 </body>
 

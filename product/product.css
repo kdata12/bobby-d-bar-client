@@ -1,0 +1,29 @@
+.hidden {
+  display: none;
+}
+
+#cart {
+  position: fixed;
+  right: 0;
+  top: 0;
+  width: 300px;
+  background: white;
+  border: 1px solid black;
+  padding: 10px;
+}
+
+#cart.active {
+  display: block;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th,
+td {
+  border: 1px solid black;
+  padding: 5px;
+  text-align: left;
+}
