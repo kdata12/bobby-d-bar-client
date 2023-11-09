@@ -1,50 +1,40 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html>
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Contact</title>
-  <link rel="stylesheet" href="contact.css">
-</head>
+<title>Contact form</title>
 
+  <link rel="stylesheet" href="contact.css">
+<style>
+</style>
+</head>
 <body>
 
-  <h2>Contact Information Form</h2>
-  <!-- <div id="form1"> -->
-
-  <form action="/submit_contact_info" method="post">
-      <label for="username">Username:</label><br>
-      <input type="text" id="username" name="username" required><br><br>
+<h1 class="contact-page">Bobby D's Contact Page</h1>
   
-      <label for="firstname">First Name:</label><br>
-      <input type="text" id="firstname" name="firstname" required><br><br>
+<div class="main-block">
+<div class="left-part">
+<i class="fas fa-envelope"></i>
+<i class="fas fa-at"></i>
+<i class="fas fa-mail-bulk"></i>
+</div>
   
-      <label for="lastname">Last Name:</label><br>
-      <input type="text" id="lastname" name="lastname" required><br><br>
+<form action="/">
+<h1>Contact Us</h1>
+<div class="info">
+<input class="fname" type="text" name="name" placeholder="Full name">
+<input type="text" name="name" placeholder="Email">
+<input type="text" name="name" placeholder="Phone number">
+<input type="text" name="name" placeholder="Website">
+</div>
+<p>Message (Please include your preffered Payment Method)</p>
+<div>
+<textarea rows="4"></textarea>
+</div>
+<button type="submit" href="/">Submit</button>
+</form>
   
-      <label for="email">Email:</label><br>
-      <input type="email" id="email" name="email" required><br><br>
-  
-      <label for="phoneNumber">Phone Number:</label><br>
-      <input type="tel" id="phoneNumber" name="phoneNumber" required><br><br>
-  
-      <label for="address">Address:</label><br>
-      <input type="text" id="address" name="address" required><br><br>
-  
-      <label for="paymentMethod">Preffered Payment Method:</label><br>
-      <select id="paymentMethod" name="paymentMethod" required>
-          <option value="visa">Visa</option>
-          <option value="mastercard">Mastercard</option>
-          <option value="gift-card">Gift Card</option>
-      </select><br><br>
-  
-      <input type="submit" value="Submit">
-  </form>
-
-  <!-- </div>   -->
-
+</div>
   
 </body>
+</html>
 
-</html> 
