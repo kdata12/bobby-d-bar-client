@@ -9,3 +9,28 @@
     color: #333; /* Change the color as needed */
     margin: 0 10px; /* Add space between icons */
 }
+html {
+  box-sizing: border-box;
+  width: 100%;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+body {
+  padding: 0;
+  margin: 0;
+}
+
+h1,
+h2,
+h3 {
+  margin: 0;
+}
+
+.hidden {
+  display: none;
+}
