@@ -52,6 +52,22 @@ td {
   text-align: left;
 }
 
+.cart-header {
+  display: flex;
+  justify-content: space-between;
+}
+
+#close-cart {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+#cart.hidden {
+  display: none;
+}
+
 
 /* sections */
 
