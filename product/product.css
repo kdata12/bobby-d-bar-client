@@ -104,6 +104,14 @@ section {
   display: none;
 }
 
+#cart-btn {
+  background-color: transparent;
+  border: none;
+  color: var(--purple);
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
 /* Logo */
 
 .logo {
@@ -146,8 +154,11 @@ nav a {
 /* 3 Popular products */
 
 #popular-products>h2 {
-  margin-bottom: 10px;
   font-size: 40px;
+  margin: 0 auto;
+  text-align: center;
+  margin-bottom: 20px;
+
 }
 
 
@@ -156,7 +167,8 @@ table {
   color: var(--white);
   width: 100%;
   border-collapse: collapse;
-  width: 500px;
+  width: 600px;
+  margin: 0 auto;
 }
 
 th,
@@ -168,8 +180,15 @@ td {
 
 /* Accordion FAQ */
 
+#faq>h2 {
+  margin-bottom: 20px;
+  font-size: 40px;
+  text-align: center;
+}
+
 .accordion {
   width: 300px;
+  margin: 0 auto;
 }
 
 .accordion .accordion-item {
@@ -177,13 +196,15 @@ td {
 }
 
 .accordion-button {
-  width: 100%;
+  width: 110%;
   text-align: left;
   background: #f1f1f1;
   border: none;
   padding: 10px;
   cursor: pointer;
   transition: background-color 0.6s ease;
+
+  font-size: 18px;
 }
 
 .accordion-button:hover,
@@ -197,6 +218,10 @@ td {
   transition: max-height 0.6s ease;
   background-color: white;
   padding: 0 10px;
+
+  width: 110%;
+  font-size: 18px;
+
 }
 
 .accordion-content p {
