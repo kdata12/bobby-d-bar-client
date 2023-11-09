@@ -1,4 +1,16 @@
 /* Custom CSS */
+:root {
+    --black: #171321;
+    --blue: #2E4172;
+    --white: #f7f8fa;
+    --purple: #403075;
+    --green: #3e8989;
+    --aqua: #86fbfb;
+    --font-size: 1.3rem;
+    --mono: "Oxygen mono", monospace;
+    --sans: Oxygen, sans-serif;
+  }
+  
 .social-media-icons {
     font-size: 24px; /* Adjust the size as needed */
     margin-top: 10px;
@@ -10,7 +22,7 @@
     margin: 0 10px; /* Add space between icons */
 }
 body {
-    background-color: #2E4172;
+    background-color: var(--green);
     color: white;
 }
 footer {
