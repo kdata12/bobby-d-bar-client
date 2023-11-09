@@ -1,3 +1,16 @@
+:root {
+  --black: #171321;
+  --blue: #2E4172;
+  --white: #f7f8fa;
+  --purple: #403075;
+  --green: #226666;
+  --aqua: #86fbfb;
+  --font-size: 1.3rem;
+  --mono: "Oxygen mono", monospace;
+  --sans: Oxygen, sans-serif;
+}
+
+
 html {
   box-sizing: border-box;
   width: 100%;
@@ -10,14 +23,17 @@ html {
 }
 
 body {
-  padding: 0;
+  padding: 0 5%;
   margin: 0;
+  background-color: var(--green);
+  font-family: var(--sans);
 }
 
 h1,
 h2,
 h3 {
   margin: 0;
+  color: var(--aqua);
 }
 
 .hidden {
