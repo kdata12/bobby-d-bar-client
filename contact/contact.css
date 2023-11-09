@@ -1,6 +1,7 @@
 html {
   box-sizing: border-box;
   width: 100%;
+  background-color: #226666;
 }
 
 *,
@@ -24,5 +25,17 @@ h3 {
   display: none;
 }
 
+/* #form1 {
 
+  background-color: white;
+  border-radius: 10px;
+  margin: 0 auto;
+} */
+
+form {
+  margin: 0 300px;
+  background-color: white;
+  border-radius: 10px;
+
+}
 
