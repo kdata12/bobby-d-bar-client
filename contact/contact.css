@@ -1,41 +1,90 @@
-html {
-  box-sizing: border-box;
-  width: 100%;
-  background-color: #226666;
-}
-
-*,
-*::before,
-*::after {
-  box-sizing: inherit;
-}
-
-body {
+html, body {
+  min-height: 100%;
   padding: 0;
   margin: 0;
+  font-family: Roboto, Arial, sans-serif;
+  font-size: 14px;
+  color: #666;
+}
+h1 {
+  margin: 0 0 20px;
+  font-weight: 400;
+  color: #226666;
 }
 
-h1,
-h2,
-h3 {
-  margin: 0;
+.contact-page {
+  margin: 0 0 20px;
+  font-weight: 400;
+  color: #226666;
 }
 
-.hidden {
-  display: none;
+p {
+margin: 0 0 5px;
 }
-
-/* #form1 {
-
-  background-color: white;
-  border-radius: 10px;
-  margin: 0 auto;
-} */
-
+.main-block {
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+min-height: 100vh;
+background: #226666;
+}
 form {
-  margin: 0 300px;
-  background-color: white;
-  border-radius: 10px;
-
+padding: 25px;
+margin: 25px;
+box-shadow: 0 2px 5px #f5f5f5; 
+background: #f5f5f5; 
 }
-
+.fas {
+margin: 25px 10px 0;
+font-size: 72px;
+color: #fff;
+}
+.fa-envelope {
+transform: rotate(-20deg);
+}
+.fa-at , .fa-mail-bulk{
+transform: rotate(10deg);
+}
+input, textarea {
+width: calc(100% - 18px);
+padding: 8px;
+margin-bottom: 20px;
+border: 1px solid #226666;
+outline: none;
+}
+input::placeholder {
+color: #666;
+}
+button {
+width: 100%;
+padding: 10px;
+border: none;
+background: #226666; 
+font-size: 16px;
+font-weight: 400;
+color: #fff;
+}
+button:hover {
+background: #226666;
+} 
+@media (min-width: 568px) {
+.main-block {
+flex-direction: row;
+}
+.left-part, form {
+width: 50%;
+}
+.fa-envelope {
+margin-top: 0;
+margin-left: 20%;
+}
+.fa-at {
+margin-top: -10%;
+margin-left: 65%;
+}
+.fa-mail-bulk {
+margin-top: 2%;
+margin-left: 28%;
+}
+}
