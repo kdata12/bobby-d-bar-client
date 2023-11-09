@@ -18,6 +18,12 @@ document.addEventListener('DOMContentLoaded', () => {
       addToCart(productName, quantity, price);
     });
   });
+
+  const closeCartBtn = document.getElementById('close-cart');
+
+  closeCartBtn.addEventListener('click', () => {
+    cart.classList.add('hidden');
+  });
 });
 
 

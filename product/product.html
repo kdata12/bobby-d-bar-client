@@ -14,7 +14,7 @@
     <nav>
       <ul>
         <li>
-          <img src="../logo.png" alt="Bobby D restaurant logo" class="logo">
+          <img src="../assets/logo.png" alt="Bobby D restaurant logo" class="logo">
         </li>
         <li>
           <a href="../index.html">Home</a>
@@ -35,23 +35,21 @@
 
   <!-- Hero -->
   <section id="hero">
-    <div>
-      <h1>At Bobby's D we offer the best bar food in the valley</h1>
-      <p>Order food and takeouts right here</p>
+    <div class="hero-text">
+      <h1 >Best Food In The Valley</h1>
+      <p>Can't come in? Order your food through our online checkout!</p>
+      <p>Try our 5-star rated fish and chips or our weekly specials!</p>
     </div>
     <div>
-      <img>
+      <img id="hero-img" src="../assets/wings.jpeg" alt="picture of wings">
     </div>
-    <!-- img here -->
   </section>
 
   <!-- Cart -->
   <aside id="cart" class="hidden">
-    <div>
-      <div>
-        <h2>Cart Items</h2>
-      </div>
-        <button></button>
+    <div class="cart-header">
+      <h2>Cart Items</h2>
+      <button id="close-cart" aria-label="Close cart">X</button>
     </div>
     <ul id="cart-items">
     </ul>
@@ -61,7 +59,7 @@
 
   <!-- 3 popular products -->
   <section id="popular-products">
-    <h1>Our most popular Items</h1>
+    <h2>Our most popular Items</h2>
     <table>
       <tr>
         <th>Product</th>
