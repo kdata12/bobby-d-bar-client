@@ -27,6 +27,19 @@ calculate_total_btn.addEventListener('click', (event) => {
   total.textContent = `Total: $${calculateCartTotal()}`
 })
 
+document.querySelectorAll('.accordion-button').forEach(button => {
+  button.addEventListener('click', () => {
+    const accordionContent = button.nextElementSibling;
+
+    button.classList.toggle('active');
+
+    if (button.classList.contains('active')) {
+      accordionContent.style.maxHeight = accordionContent.scrollHeight + 'px';
+    } else {
+      accordionContent.style.maxHeight = 0;
+    }
+  });
+});
 
 // FUNCTIONS AND OPERATIONS
 
