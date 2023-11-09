@@ -3,7 +3,7 @@
   --blue: #2E4172;
   --white: #f7f8fa;
   --purple: #403075;
-  --green: #226666;
+  --green: #3e8989;
   --aqua: #86fbfb;
   --font-size: 1.3rem;
   --mono: "Oxygen mono", monospace;
@@ -40,8 +40,40 @@ h3 {
   display: none;
 }
 
+section {
+  margin: 0 auto;
+  max-width: 1200px;
+  margin: 2% 0 5% 0;
+}
+
+/* Hero section */
+
+#hero {
+  display: flex;
+  justify-content: space-between;
+  flex-flow: row wrap;
+}
+
+#hero-img {
+  width: 440px;
+  height: auto;
+}
+
+.hero-text {
+  width: 55%;
+}
+
+#hero h1 {
+  font-size: 50px;
+}
+
+#hero p {
+  color: var(--white);
+  font-size: 20px;
+}
 
 /* Cart */
+
 #cart {
   position: fixed;
   right: 0;
@@ -54,18 +86,6 @@ h3 {
 
 #cart.active {
   display: block;
-}
-
-table {
-  width: 100%;
-  border-collapse: collapse;
-}
-
-th,
-td {
-  border: 1px solid black;
-  padding: 5px;
-  text-align: left;
 }
 
 .cart-header {
@@ -82,15 +102,6 @@ td {
 
 #cart.hidden {
   display: none;
-}
-
-
-/* sections */
-
-section {
-  margin: 0 auto;
-  max-width: 1200px;
-
 }
 
 /* Logo */
@@ -127,8 +138,32 @@ nav li:first-child {
 nav a {
   text-decoration: none;
   display: block;
-  color: blue;
+  color: var(--white);
   font-size: 24px;
+}
+
+
+/* 3 Popular products */
+
+#popular-products>h2 {
+  margin-bottom: 10px;
+  font-size: 40px;
+}
+
+
+
+table {
+  color: var(--white);
+  width: 100%;
+  border-collapse: collapse;
+  width: 500px;
+}
+
+th,
+td {
+  border: 1px solid black;
+  padding: 5px;
+  text-align: left;
 }
 
 /* Accordion FAQ */
