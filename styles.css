@@ -1,0 +1,11 @@
+/* Custom CSS */
+.social-media-icons {
+    font-size: 24px; /* Adjust the size as needed */
+    margin-top: 10px;
+}
+
+.social-media-icons a {
+    text-decoration: none;
+    color: #333; /* Change the color as needed */
+    margin: 0 10px; /* Add space between icons */
+}
