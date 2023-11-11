@@ -7,7 +7,7 @@
   --aqua: #86fbfb;
   --font-size: 1.3rem;
   --mono: "Oxygen mono", monospace;
-  --sans: Oxygen, sans-serif;
+  --play: 'Playfair Display', serif;
 }
 
 
@@ -25,7 +25,7 @@ html {
 body {
   margin: 200px 0 0 0;
   background-color: var(--green);
-  font-family: var(--sans);
+  font-family: var(--play);
   height: 300vh;
 }
 
@@ -42,7 +42,7 @@ h3 {
 
 section {
   margin: 0 auto;
-  max-width: 1200px;
+  /* max-width: 1200px; */
   margin: 2% 0 5% 0;
 }
 
@@ -75,7 +75,6 @@ section {
 
 /* Cart */
 
-/* Show Cart */
 #cart.cart-visible {
   transform: translateX(0);
 }
@@ -86,9 +85,9 @@ section {
   right: 0;
   width: 300px;
   height: 100%;
-  background: white;
-  border-left: 1px solid black;
-  padding: 10px;
+  background: var(--white);
+  border-left: 1px solid rgb(101, 101, 101);
+  /* padding: 20px; */
   transform: translateX(100%);
   /* Hide off-screen to the right */
   transition: transform 0.3s ease-in-out;
@@ -104,6 +103,12 @@ section {
 .cart-header {
   display: flex;
   justify-content: space-between;
+  margin: 20px
+}
+
+.cart-header>h2 {
+  color: var(--blue);
+  margin-top: 20px;
 }
 
 #close-cart {
@@ -126,6 +131,88 @@ section {
 }
 
 #cart-btn:hover {
+  cursor: pointer;
+}
+
+#cart-items {
+  margin: 0;
+  padding: 20px 0 20px 0;
+  height: 745px;
+}
+
+#cart-items .item {
+  list-style: none;
+  background-color: var(--white);
+  transition: background-color 0.3s;
+  padding: 10px;
+
+}
+
+.item-container {
+  display: flex;
+  margin: 10px 0px 10px 0;
+}
+
+#cart-items .item:hover {
+  background-color: #e4ebf9;
+}
+
+.item-container img {
+  width: 100px;
+  border-radius: 10px;
+}
+
+.item-container .cart-text {
+  margin-top: 0;
+  margin-left: 15px;
+  text-wrap: pretty;
+  text-align: left;
+}
+
+button.remove-item {
+  background-color: transparent;
+  border: None;
+  cursor: pointer;
+  padding: 0;
+
+  font-size: 15px;
+  color: var(--blue)
+}
+
+
+li.subtotal {
+  display: flex;
+  padding: 10px;
+  justify-content: space-between;
+  position: relative;
+  margin-top: 10px;
+}
+
+li.subtotal>* {
+  margin: 0
+}
+
+li.subtotal::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  background-color: var(--black);
+  height: 1px;
+  width: 100%;
+}
+
+.calc-wrapper {
+  padding: 20px;
+}
+
+#calc-total {
+  background-color: var(--green);
+  border: none;
+  color: var(--white);
+  font-size: 20px;
+  padding: 10px 20px;
+  margin: 0 auto;
+  display: block;
   cursor: pointer;
 }
 
@@ -234,6 +321,94 @@ td {
   border: 1px solid black;
   padding: 5px;
   text-align: left;
+}
+
+/* popular */
+.popular {
+  width: 100%;
+  background-color: var(--purple);
+}
+
+.wrapper {
+  margin: 0 auto;
+  max-width: 1200px;
+}
+
+
+
+/* card */
+.card-wrapper {
+  display: flex;
+  justify-content: space-between;
+}
+
+.card {
+  width: 300px;
+  background-color: var(--white);
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  margin: 10px;
+  position: relative;
+
+  border-radius: 10px;
+}
+
+.card h3 {
+  color: var(--black);
+  font-family: var(--play);
+  text-align: center;
+}
+
+.card img {
+  width: 100%;
+  display: block;
+  border-radius: 5px 5px 0 0;
+}
+
+.quantity-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin: 20px 0;
+}
+
+.quantity {
+  font-size: 1.5rem;
+}
+
+.add-to-order {
+  background-color: var(--blue);
+  color: var(--white);
+  border: none;
+  padding: 10px 20px;
+  font-size: 1rem;
+  cursor: pointer;
+  width: 100%;
+  box-sizing: border-box;
+  transition: background-color 0.3s;
+  border-radius: 0 0 5px 5px;
+}
+
+.increase-quantity,
+.decrease-quantity {
+  background-color: none;
+  color: #232121;
+  border: none;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+  outline: none;
+  text-align: center;
+  line-height: 50px;
+  font-size: 16px;
+  transition: background-color 0.3s;
+}
+
+.increase-quantity:hover,
+.decrease-quantity:hover {
+  background-color: #e4e3e3;
+  /* Darker shade of black on hover for visual feedback */
 }
 
 /* Accordion FAQ */

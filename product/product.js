@@ -33,6 +33,51 @@ document.addEventListener('DOMContentLoaded', () => {
       link.classList.add('active')
     }
   })
+
+  const increaseQuantityButtons = document.getElementsByClassName('increase-quantity');
+  Array.from(increaseQuantityButtons).forEach(button => {
+    button.addEventListener('click', (event) => {
+      const card = event.target.closest('.card');
+      const quantityElement = card.querySelector('.quantity');
+      const addToOrderButton = card.querySelector('.add-to-order');
+      let currentQuantity = parseInt(quantityElement.textContent, 10);
+      currentQuantity += 1;
+      quantityElement.textContent = currentQuantity.toString();
+      updateAddToOrderButton(addToOrderButton, currentQuantity);
+    });
+  });
+
+  const decreaseQuantityButtons = document.getElementsByClassName('decrease-quantity');
+  Array.from(decreaseQuantityButtons).forEach(button => {
+    button.addEventListener('click', (event) => {
+      const card = event.target.closest('.card');
+      const quantityElement = card.querySelector('.quantity');
+      const addToOrderButton = card.querySelector('.add-to-order');
+      let currentQuantity = parseInt(quantityElement.textContent, 10);
+      if (currentQuantity > 1) {
+        currentQuantity -= 1;
+        quantityElement.textContent = currentQuantity.toString();
+        updateAddToOrderButton(addToOrderButton, currentQuantity);
+      }
+    });
+  });
+
+  const addToOrderButtons = document.querySelectorAll(".add-to-order")
+  addToOrderButtons.forEach(button => {
+    button.addEventListener('click', (event) => {
+      const card = event.target.closest('.card');
+      const quantityElement = card.querySelector('.quantity');
+      let currentQuantity = parseInt(quantityElement.textContent, 10);
+      
+      const pricePerItem = parseFloat(button.dataset.price);
+      const productName = card.querySelector('h3').textContent
+      
+      addToCart(productName, currentQuantity, pricePerItem)
+      
+    })
+  })
+  
+
 });
 
 
@@ -73,7 +118,7 @@ window.addEventListener("scroll", () => {
     nav.classList.remove('nav-hidden');
     nav.classList.add('nav-visible');
   }
-  lastScrollTop = currentScroll <= 0 ? 0 : currentScroll; // For mobile or negative scrolling
+  lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
 }, false);
 
 // FUNCTIONS AND OPERATIONS
@@ -81,8 +126,8 @@ window.addEventListener("scroll", () => {
 items_in_cart = {}
 
 function addToCart(productName, quantity, price) {
-  quantity = parseInt(quantity); // Ensure quantity is an integer
-  price = parseFloat(price); // Ensure price is a float
+  quantity = parseInt(quantity);
+  price = parseFloat(price); 
   const cartItems = document.getElementById('cart-items');
   let listItem = document.querySelector(`#cart-items li[data-product-name="${productName}"]`);
   
@@ -108,4 +153,11 @@ function calculateCartTotal() {
     total += items_in_cart[item].total;
   }
   return total;
+}
+
+function updateAddToOrderButton(button, quantity) {
+  const pricePerItem = parseFloat(button.dataset.price);
+  const totalPrice = pricePerItem * quantity;
+  button.textContent = `Add to my order $${totalPrice.toFixed(2)}`;
+  button.setAttribute('data-total', totalPrice.toFixed(2));
 }

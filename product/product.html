@@ -34,27 +34,44 @@
   </div>
 
   <!-- Hero -->
-  <section id="hero">
-    <div class="hero-text">
-      <h1>Best Food In The Valley</h1>
-      <p>Can't come in? Order your food through our online checkout!</p>
-      <p>Try our 5-star rated fish and chips or our weekly specials!</p>
-    </div>
-    <div>
-      <img id="hero-img" src="../assets/wings.jpeg" alt="picture of wings">
+  <section>
+    <div id="hero" class="wrapper">
+      <div class="hero-text">
+        <h1>Best Food In The Valley</h1>
+        <p>Can't come in? Order your food through our online checkout!</p>
+        <p>Try our 5-star rated fish and chips or our weekly specials!</p>
+      </div>
+      <div>
+        <img id="hero-img" src="../assets/wings.jpeg" alt="picture of wings">
+      </div>
     </div>
   </section>
 
   <!-- Cart -->
   <aside id="cart">
     <div class="cart-header">
-      <h2>Cart</h2>
+      <h2>My Order</h2>
       <button id="close-cart" aria-label="Close cart">X</button>
     </div>
     <ul id="cart-items">
+      <li class="item">
+        <div class="item-container">
+          <img src="../assets/spicy-chicken-sandwich.jpeg"/>
+          <div class="cart-text">
+            <p>Spicy Chicken Sandwich</p>
+            <p>amount:</p>
+            <button class="remove-item">remove</button>
+          </div>
+        </div>
+      </li>
+      <li class="subtotal">
+        <h4>Subtotal</h4>
+        <p>$0.00</p>
+      </li>
     </ul>
-    <button id="calc-total">calculate total</button>
-    <p id="cart-total"></p>
+    <div class="calc-wrapper">
+      <button id="calc-total">Continue to Checkout</button>
+    </div>
   </aside>
 
   <!-- 3 popular products -->
@@ -108,6 +125,46 @@
         <td><button class="add-to-cart">Add to Cart</button></td>
       </tr>
     </table>
+  </section>
+
+  <section class="popular">
+    <div class="wrapper">
+      <h1>Our most popular</h1>
+      <div class="card-wrapper">
+        <div class="card">
+          <img src="../assets/spicy-chicken-sandwich.jpeg" alt="spicy chicken sandwich" class="card-image"/>
+          <h3>Spicy Chicken Sandwich</h3>
+          <div class="quantity-wrapper">
+            <button class="decrease-quantity">-</button>
+            <span class="quantity">1</span>
+            <button class="increase-quantity">+</button>
+          </div>
+          <button class="add-to-order" data-price="5" data-total="0">Add to my order $5</button>
+        </div>
+
+        <div class="card">
+          <img src="../assets/spicy-chicken-sandwich.jpeg" alt="spicy chicken sandwich" class="card-image"/>
+          <h3>Nuggets</h3>
+          <div class="quantity-wrapper">
+            <button class="decrease-quantity">-</button>
+            <span class="quantity">1</span>
+            <button class="increase-quantity">+</button>
+          </div>
+          <button class="add-to-order" data-price="10" data-total="0">Add to my order $10</button>
+        </div>
+
+        <div class="card">
+          <img src="../assets/spicy-chicken-sandwich.jpeg" alt="spicy chicken sandwich" class="card-image"/>
+          <h3>Spicy Chicken Sandwich</h3>
+          <div class="quantity-wrapper">
+            <button class="decrease-quantity">-</button>
+            <span class="quantity">1</span>
+            <button class="increase-quantity">+</button>
+          </div>
+          <button class="add-to-order" data-price="10" data-total="0">Add to my order $10</button>
+        </div>
+      </div>
+    </div>
   </section>
 
   <section id="faq">
