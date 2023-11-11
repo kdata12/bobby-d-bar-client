@@ -19,7 +19,7 @@ footer {
 
 /* CSS for the hero banner */
 #hero .hero-banner {
-    width: 98.6vw;
+    width: 100vw;
     height: 50vh;
     display: block;
     margin: 0 !important; /* Remove margin */
