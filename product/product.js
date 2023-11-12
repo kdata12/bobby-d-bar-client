@@ -3,20 +3,9 @@
 document.addEventListener('DOMContentLoaded', () => {
   const cartBtn = document.getElementById('cart-btn');
   const cart = document.getElementById('cart');
-  const addToCartButtons = document.querySelectorAll('.add-to-cart');
 
   cartBtn.addEventListener('click', () => {
     cart.classList.toggle('cart-visible');
-  });
-
-  addToCartButtons.forEach(button => {
-    button.addEventListener('click', (event) => {
-      const productRow = event.target.closest('.product');
-      const productName = productRow.cells[0].textContent;
-      const quantity = productRow.querySelector('.quantity').value;
-      const price = parseFloat(productRow.querySelector('.price').dataset.value);
-      addToCart(productName, quantity, price);
-    });
   });
 
   const closeCartBtn = document.getElementById('close-cart');
@@ -81,12 +70,6 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 
-calculate_total_btn = document.getElementById('calc-total')
-calculate_total_btn.addEventListener('click', (event) => {
-  const total = document.getElementById('cart-total')
-  total.textContent = `Total: $${calculateCartTotal()}`
-})
-
 document.querySelectorAll('.accordion-button').forEach(button => {
   button.addEventListener('click', () => {
     const accordionContent = button.nextElementSibling;
@@ -126,33 +109,43 @@ window.addEventListener("scroll", () => {
 items_in_cart = {}
 
 function addToCart(productName, quantity, price) {
-  quantity = parseInt(quantity);
-  price = parseFloat(price); 
+  quantity = parseInt(quantity); // Ensure quantity is an integer
+  price = parseFloat(price); // Ensure price is a float
   const cartItems = document.getElementById('cart-items');
-  let listItem = document.querySelector(`#cart-items li[data-product-name="${productName}"]`);
-  
-  // If the product is already in the cart, update the quantity and total
+
+  // Check if the product is already in the cart
   if (items_in_cart[productName]) {
+    // Update the quantity and total if the item is already in the cart
     items_in_cart[productName].quantity += quantity;
-    items_in_cart[productName].total += quantity * price;
+    items_in_cart[productName].total = items_in_cart[productName].quantity * price;
+
+    // Update the UI to reflect the new quantity
+    const listItem = cartItems.querySelector(`li[data-product-name="${productName}"]`);
+    const amountElement = listItem.querySelector('.cart-text p:nth-of-type(2)');
+    amountElement.textContent = `Amount: ${items_in_cart[productName].quantity}`;
   } else {
-    // If the product is not in the cart, add it
-    items_in_cart[productName] = {quantity: quantity, total: price * quantity};
-    listItem = document.createElement('li');
+
+    items_in_cart[productName] = {
+      quantity: quantity,
+      total: price * quantity
+    };
+
+    const listItem = document.createElement('li')
     listItem.setAttribute('data-product-name', productName);
-    cartItems.appendChild(listItem);
-  }
+    listItem.className = 'item';
 
-  // Update the list item's text content to reflect the current quantity and total
-  listItem.textContent = `${productName} - Quantity: ${items_in_cart[productName].quantity} - Total: $${items_in_cart[productName].total.toFixed(2)}`;
-}
-
-function calculateCartTotal() {
-  let total = 0;
-  for (let item in items_in_cart) {
-    total += items_in_cart[item].total;
+    listItem.innerHTML = `
+    <div class="item-container">
+      <img src="../assets/spicy-chicken-sandwich.jpeg" alt="${productName}" />
+      <div class="cart-text">
+        <p>${productName}</p>
+        <p>Amount: ${quantity}</p>
+        <button class="remove-item">remove</button>
+      </div>
+    </div>`
+    cartItems.appendChild(listItem)
   }
-  return total;
+  updateSubtotal();
 }
 
 function updateAddToOrderButton(button, quantity) {
@@ -160,4 +153,12 @@ function updateAddToOrderButton(button, quantity) {
   const totalPrice = pricePerItem * quantity;
   button.textContent = `Add to my order $${totalPrice.toFixed(2)}`;
   button.setAttribute('data-total', totalPrice.toFixed(2));
+}
+
+function updateSubtotal() {
+  let subtotal = 0;
+  Object.values(items_in_cart).forEach(item => {
+    subtotal += item.total;
+  });
+  document.querySelector('.subtotal p').textContent = `$${subtotal.toFixed(2)}`;
 }

@@ -137,7 +137,7 @@ section {
 #cart-items {
   margin: 0;
   padding: 20px 0 20px 0;
-  height: 745px;
+  height: auto;
 }
 
 #cart-items .item {
@@ -180,7 +180,7 @@ button.remove-item {
 }
 
 
-li.subtotal {
+div.subtotal {
   display: flex;
   padding: 10px;
   justify-content: space-between;
@@ -188,11 +188,11 @@ li.subtotal {
   margin-top: 10px;
 }
 
-li.subtotal>* {
+div.subtotal>* {
   margin: 0
 }
 
-li.subtotal::before {
+div.subtotal::before {
   content: '';
   position: absolute;
   top: 0;
