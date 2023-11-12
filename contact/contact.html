@@ -1,40 +1,99 @@
 <!DOCTYPE html>
+
 <html>
+
 <head>
-<title>Contact form</title>
-
-  <link rel="stylesheet" href="contact.css">
-<style>
-</style>
+    <title> Bobby D's contact page</title>
+    <link rel="stylesheet" href="contact.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="contact.js"></script>
 </head>
+
 <body>
+    <div class="container">
+        <div class="header">Contact Us</div>
+        <div class="content-large">
+            <div class="divform">
+                <form>
+                    <label for="uname">Username</label>
+                    <input type="text" id="uname" name="uname" placeholder="Your username..">
+                    <label for="fname">Full Name</label>
+                    <input type="text" id="fname" name="fname" placeholder="Your name..">
 
-<h1 class="contact-page">Bobby D's Contact Page</h1>
-  
-<div class="main-block">
-<div class="left-part">
-<i class="fas fa-envelope"></i>
-<i class="fas fa-at"></i>
-<i class="fas fa-mail-bulk"></i>
-</div>
-  
-<form action="/">
-<h1>Contact Us</h1>
-<div class="info">
-<input class="fname" type="text" name="name" placeholder="Full name">
-<input type="text" name="name" placeholder="Email">
-<input type="text" name="name" placeholder="Phone number">
-<input type="text" name="name" placeholder="Website">
-</div>
-<p>Message (Please include your preffered Payment Method)</p>
-<div>
-<textarea rows="4"></textarea>
-</div>
-<button type="submit" href="/">Submit</button>
-</form>
-  
-</div>
-  
+                    <label for="email">Email</label>
+                    <input type="text" id="email" name="email" placeholder="Your email..">
+
+                    <label for="Address">Address</label>
+                    <input type="text" id="Address" name="Address" placeholder="Your address..">
+
+                    <label for="paymentMethod">Payment Method</label>
+                    <select id="paymentMethod" name="paymentMethod">
+                        <option value="Select">--Select--</option>
+                        <option value="Cash">Cash</option>
+                        <option value="Visa">Visa</option>
+                        <option value="Mastercard">Mastercard</option>
+                        <option value="American-Express">American Express</option>
+                    </select>
+
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" placeholder="Write something.."
+                        style="height:100%"></textarea>
+
+
+                    <input type="submit" value="Submit"  onclick="saveFile()">
+                    <input type="reset" id="clear-button" value="Clear">
+                </form>
+            </div>
+
+        </div>
+        <div class="content-small1">
+            <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d13295.480402565188!2d-112.06708314044585!3d33.582721825775444!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x872b6d86ea536c35%3A0x75039824e841318f!2sBobby%20D&#39;s%20Restaurant%20%26%20Lounge!5e0!3m2!1sen!2sus!4v1699826067243!5m2!1sen!2sus"
+                width="600" height="450" style="border:0; border-radius: 4px;" allowfullscreen="" loading="lazy" 
+                referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+        <div class="content-small2">
+            <h3 class="hours-title">Bobby D's Restaurant & Lounge </h3>
+            <br><br>
+            <p class="hours">Sunday 9 AM–2 AM </p>
+            <p class="hours">Monday 10 AM–2 AM </p>
+            <p class="hours">Tuesday 10 AM–2 AM </p>
+            <p class="hours">Wednesday 10 AM–2 AM </p>
+            <p class="hours">Thursday 10 AM– 2 AM</p>
+            <p class="hours">Friday 10 AM – 2 AM </p>
+            <p class="hours">Saturday 9 AM – 2 AM </p>
+            <br><br><br>
+            <p class="hours-address">10604 Cave Creek Rd, Phoenix, AZ 85020</p>
+            <p class="hours-address">info@BobbyD.com</p>
+            <p class="hours-address">(602)861-9389</p>
+
+        </div>
+        <div class="footer">
+
+            <p><i><small>Copyright &copy;Bobby D's Restaurant & Lounge<br>
+                        <a href="mailto:syawalka@asu.edu">info@BobbyD.com</a>
+                        <br>
+                    </small></i></p>
+            <div class="socialMediaLinks">
+                <small><i><a href="https://twitter.com" class="fa fa-twitter" target="_blank"></a>
+                        <a href="https://facebook.com" class="fa fa-facebook-f" target="_blank"></a>
+                        <!-- <a href="https://github.io" class="fa fa-brand fa-github" target="_blank"></a> -->
+                        <a href="https://instagram.com" class="fa fa-instagram" target="_blank"></a>
+                        <!-- <a href="https://www.linkedin.com/in/siddhant-yawalkar/" class="fa fa-linkedin" target="_blank"> -->
+                        </a></i></small>
+            </div>
+
+
+
+        </div>
+
+
+    </div>
+
+
+
+
 </body>
-</html>
 
+
+</html>
