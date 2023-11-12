@@ -1,4 +1,25 @@
-/* Custom CSS */
+.content-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px; 
+}
+
+.happy-hour-content {
+  width: auto;
+}
+
+.video-container {
+  width: 50vw;
+  height: 35.5vh;
+}
+
+iframe {
+  width: 100%;
+  height: 100%;
+}
+
+
 .social-media-icons {
     font-size: 24px; /* Adjust the size as needed */
     margin-top: 10px;
