@@ -34,15 +34,10 @@
   </div>
 
   <!-- Hero -->
-  <section>
-    <div id="hero" class="wrapper">
+  <section id="hero">
+    <div class="hero-image">
       <div class="hero-text">
         <h1>Best Food In The Valley</h1>
-        <p>Can't come in? Order your food through our online checkout!</p>
-        <p>Try our 5-star rated fish and chips or our weekly specials!</p>
-      </div>
-      <div>
-        <img id="hero-img" src="../assets/wings.jpeg" alt="picture of wings">
       </div>
     </div>
   </section>
@@ -53,21 +48,13 @@
       <h2>My Order</h2>
       <button id="close-cart" aria-label="Close cart">X</button>
     </div>
-    <ul id="cart-items">
-      <li class="item">
-        <div class="item-container">
-          <img src="../assets/spicy-chicken-sandwich.jpeg"/>
-          <div class="cart-text">
-            <p>Spicy Chicken Sandwich</p>
-            <p>Amount: 3</p>
-            <button class="remove-item">remove</button>
-          </div>
-        </div>
-      </li>
-    </ul>
-    <div class="subtotal">
-      <h4>Subtotal</h4>
-      <p>$0.00</p>
+    <div class="cart-item-wrapper">
+      <ul id="cart-items">
+      </ul>
+      <div class="subtotal">
+        <h4>Subtotal</h4>
+        <p>$0.00</p>
+      </div>
     </div>
     <div class="calc-wrapper">
       <button id="calc-total">Continue to Checkout</button>
@@ -75,70 +62,72 @@
   </aside>
 
   <section class="popular">
-    <div class="wrapper">
+    <div class="wrapper extra-padding">
       <h1>Our most popular</h1>
       <div class="card-wrapper">
         <div class="card">
-          <img src="../assets/spicy-chicken-sandwich.jpeg" alt="spicy chicken sandwich" class="card-image"/>
+          <img src="../assets/spicy-chicken-sandwich.jpeg" alt="spicy chicken sandwich" class="card-image" />
           <h3>Spicy Chicken Sandwich</h3>
           <div class="quantity-wrapper">
             <button class="decrease-quantity">-</button>
             <span class="quantity">1</span>
             <button class="increase-quantity">+</button>
           </div>
-          <button class="add-to-order" data-price="5" data-total="0">Add to my order $5</button>
+          <button class="add-to-order" data-price="6" data-total="0">Add to my order $6</button>
         </div>
 
         <div class="card">
-          <img src="../assets/spicy-chicken-sandwich.jpeg" alt="spicy chicken sandwich" class="card-image"/>
-          <h3>Nuggets</h3>
+          <img src="../assets/buffalo-wings.jpeg" alt="Buffalo wings" class="card-image" />
+          <h3>10pc Buffalo Wings</h3>
           <div class="quantity-wrapper">
             <button class="decrease-quantity">-</button>
             <span class="quantity">1</span>
             <button class="increase-quantity">+</button>
           </div>
-          <button class="add-to-order" data-price="10" data-total="0">Add to my order $10</button>
+          <button class="add-to-order" data-price="15" data-total="0">Add to my order $15</button>
         </div>
 
         <div class="card">
-          <img src="../assets/spicy-chicken-sandwich.jpeg" alt="spicy chicken sandwich" class="card-image"/>
-          <h3>Spicy Chicken Sandwich</h3>
+          <img src="../assets/steak-frites.jpeg" alt="spicy chicken sandwich" class="card-image" />
+          <h3>Steak Frites</h3>
           <div class="quantity-wrapper">
             <button class="decrease-quantity">-</button>
             <span class="quantity">1</span>
             <button class="increase-quantity">+</button>
           </div>
-          <button class="add-to-order" data-price="10" data-total="0">Add to my order $10</button>
+          <button class="add-to-order" data-price="18" data-total="0">Add to my order $18</button>
         </div>
       </div>
     </div>
   </section>
 
   <section id="faq">
-    <h2>Frequently Asked Questions</h2>
-    <div class="accordion">
-      <div class="accordion-item">
-        <button class="accordion-button" type="button">
-          What is our delivery policy?
-        </button>
-        <div class="accordion-content">
-          <p>We are on doordash and ubereats</p>
+    <div class="accordion-wrapper">
+      <h2>Frequently Asked Questions</h2>
+      <div class="accordion">
+        <div class="accordion-item">
+          <button class="accordion-button" type="button">
+            What is our delivery policy?
+          </button>
+          <div class="accordion-content">
+            <p>We are on doordash and ubereats</p>
+          </div>
         </div>
-      </div>
-      <div class="accordion-item">
-        <button class="accordion-button" type="button">
-          When is happy hour?
-        </button>
-        <div class="accordion-content">
-          <p>Happy hours are everyday at 5pm-7pm</p>
+        <div class="accordion-item">
+          <button class="accordion-button" type="button">
+            When is happy hour?
+          </button>
+          <div class="accordion-content">
+            <p>Happy hours are everyday at 5pm-7pm</p>
+          </div>
         </div>
-      </div>
-      <div class="accordion-item">
-        <button class="accordion-button" type="button">
-          How do I contact support?
-        </button>
-        <div class="accordion-content">
-          <p>Visit our support contact page or call 1-800-bobby-d</p>
+        <div class="accordion-item">
+          <button class="accordion-button" type="button">
+            How do I contact support?
+          </button>
+          <div class="accordion-content">
+            <p>Visit our support contact page or call 1-800-bobby-d</p>
+          </div>
         </div>
       </div>
     </div>

@@ -60,12 +60,13 @@ document.addEventListener('DOMContentLoaded', () => {
       
       const pricePerItem = parseFloat(button.dataset.price);
       const productName = card.querySelector('h3').textContent
+
+      const product_image = card.querySelector('img').src
       
-      addToCart(productName, currentQuantity, pricePerItem)
+      addToCart(productName, currentQuantity, pricePerItem, product_image)
       
     })
   })
-  
 
 });
 
@@ -106,11 +107,11 @@ window.addEventListener("scroll", () => {
 
 // FUNCTIONS AND OPERATIONS
 
-items_in_cart = {}
+items_in_cart = {} // "prodctName: {"total": 0, "quantity": 0}"
 
-function addToCart(productName, quantity, price) {
-  quantity = parseInt(quantity); // Ensure quantity is an integer
-  price = parseFloat(price); // Ensure price is a float
+function addToCart(productName, quantity, price, product_image) {
+  quantity = parseInt(quantity); 
+  price = parseFloat(price);
   const cartItems = document.getElementById('cart-items');
 
   // Check if the product is already in the cart
@@ -128,7 +129,7 @@ function addToCart(productName, quantity, price) {
     items_in_cart[productName] = {
       quantity: quantity,
       total: price * quantity
-    };
+    }
 
     const listItem = document.createElement('li')
     listItem.setAttribute('data-product-name', productName);
@@ -136,7 +137,7 @@ function addToCart(productName, quantity, price) {
 
     listItem.innerHTML = `
     <div class="item-container">
-      <img src="../assets/spicy-chicken-sandwich.jpeg" alt="${productName}" />
+      <img src="${product_image}" alt="${productName}" />
       <div class="cart-text">
         <p>${productName}</p>
         <p>Amount: ${quantity}</p>
@@ -144,6 +145,10 @@ function addToCart(productName, quantity, price) {
       </div>
     </div>`
     cartItems.appendChild(listItem)
+
+    const removeButton = listItem.querySelector('.remove-item');
+    removeButton.addEventListener('click', () => removeFromCart(productName, price));
+
   }
   updateSubtotal();
 }
@@ -161,4 +166,21 @@ function updateSubtotal() {
     subtotal += item.total;
   });
   document.querySelector('.subtotal p').textContent = `$${subtotal.toFixed(2)}`;
+}
+
+function removeFromCart(productName, price) {
+  const cartItems = document.getElementById('cart-items');
+  const listItem = cartItems.querySelector(`li[data-product-name="${productName}"]`);
+  if (items_in_cart[productName].quantity - 1 === 0) {
+    delete items_in_cart[productName]
+    cartItems.removeChild(listItem)
+  } else {
+    items_in_cart[productName].quantity -= 1
+    items_in_cart[productName].total -= price;
+
+    const amountElement = listItem.querySelector('.cart-text p:nth-of-type(2)');
+    amountElement.textContent = `Amount: ${items_in_cart[productName].quantity}`;
+  }
+  
+  updateSubtotal()
 }
