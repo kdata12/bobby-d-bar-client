@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
     let lastScrollTop = 0;
     const nav = document.querySelector('nav');
-    const navHeight = nav.offsetHeight; // Get the height of the navigation bar
+    const navHeight = nav.offsetHeight;
 
     window.addEventListener("scroll", () => {
     let currentScroll = window.scrollY || document.documentElement.scrollTop;

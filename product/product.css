@@ -56,16 +56,13 @@ section {
 
 .hero-image {
   background-image: url('../assets/bottle.jpeg');
-  /* Path to your hero image */
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
-  /* This will create the parallax effect */
   height: 100%;
   width: 100%;
   position: relative;
   z-index: -1;
-  /* Ensure the image stays in the background */
 }
 
 .hero-text {
@@ -74,13 +71,10 @@ section {
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 1;
-  /* Ensure text appears above the background image */
   color: var(--white);
-  /* Adjust as needed */
   text-align: center;
   font-size: 80px;
   width: 100%;
-  /* Set to the width you want for your text */
 }
 
 .hero-text h1 {
@@ -101,12 +95,9 @@ section {
   height: 100%;
   background: var(--white);
   border-left: 1px solid rgb(101, 101, 101);
-  /* padding: 20px; */
   transform: translateX(100%);
-  /* Hide off-screen to the right */
   transition: transform 0.3s ease-in-out;
   z-index: 100;
-  /* Ensure it's above other content */
 }
 
 
@@ -346,13 +337,11 @@ td {
 .popular {
   width: 100%;
   background-color: var(--purple);
-  /* padding: 20px 10px; */
 }
 
 .wrapper {
   margin: 0 auto;
   max-width: 1200px;
-  /* padding: 140px 90px; */
 }
 
 .extra-padding {
@@ -441,7 +430,6 @@ td {
 .increase-quantity:hover,
 .decrease-quantity:hover {
   background-color: #e4e3e3;
-  /* Darker shade of black on hover for visual feedback */
 }
 
 /* Accordion FAQ */
