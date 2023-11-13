@@ -68,6 +68,26 @@ document.addEventListener('DOMContentLoaded', () => {
     })
   })
 
+  const calcTotalButton = document.getElementById('calc-total')
+
+  calcTotalButton.addEventListener('click', () => {
+    const totalAmountBeforeTax = updateSubtotal()
+    const taxRate = 0.0805;
+    const totalAmount = totalAmountBeforeTax + (totalAmountBeforeTax * taxRate)
+    
+    const totalElement = document.querySelector('.total');
+
+    if (totalElement) {
+      totalElement.innerHTML = `
+        <h4>Total</h4>
+        <p>$${totalAmount.toFixed(2)}</p>
+      `;
+
+      totalElement.classList.add('subtotal')
+    }
+
+  })
+
 });
 
 
@@ -166,6 +186,7 @@ function updateSubtotal() {
     subtotal += item.total;
   });
   document.querySelector('.subtotal p').textContent = `$${subtotal.toFixed(2)}`;
+  return subtotal
 }
 
 function removeFromCart(productName, price) {
