@@ -175,7 +175,6 @@ section {
 .item-container .cart-text {
   margin-top: 0;
   margin-left: 15px;
-  text-wrap: pretty;
   text-align: left;
 }
 
@@ -358,7 +357,7 @@ td {
 .wrapper>h1 {
   color: var(--white);
   font-size: 80px;
-  text-align: top;
+  text-align: start;
   margin-bottom: 20px;
 }
 
@@ -420,7 +419,7 @@ td {
 
 .increase-quantity,
 .decrease-quantity {
-  background-color: none;
+  background-color: transparent;
   color: #232121;
   border: none;
   border-radius: 50%;
@@ -506,4 +505,3 @@ td {
   gap: 20px;
   margin: 0 auto;
 }
-
