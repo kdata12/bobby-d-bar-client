@@ -7,7 +7,7 @@
   --aqua: #86fbfb;
   --font-size: 1.3rem;
   --mono: "Oxygen mono", monospace;
-  --sans: Oxygen, sans-serif;
+  --play: 'Playfair Display', serif;
 }
 
 
@@ -23,10 +23,10 @@ html {
 }
 
 body {
-  padding: 0 5%;
-  margin: 0;
+  margin: 115px 0 0 0;
   background-color: var(--green);
-  font-family: var(--sans);
+  font-family: var(--play);
+  height: 260vh;
 }
 
 h1,
@@ -42,47 +42,72 @@ h3 {
 
 section {
   margin: 0 auto;
-  max-width: 1200px;
-  margin: 2% 0 5% 0;
+
 }
 
 /* Hero section */
-
 #hero {
-  display: flex;
-  justify-content: space-between;
-  flex-flow: row wrap;
+  position: relative;
+  overflow: hidden;
+  height: 100vh;
+  margin: 0;
 }
 
-#hero-img {
-  width: 440px;
-  height: auto;
+.hero-image {
+  background-image: url('../assets/bottle.jpeg');
+  /* Path to your hero image */
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  /* This will create the parallax effect */
+  height: 100%;
+  width: 100%;
+  position: relative;
+  z-index: -1;
+  /* Ensure the image stays in the background */
 }
 
 .hero-text {
-  width: 55%;
-}
-
-#hero h1 {
-  font-size: 50px;
-}
-
-#hero p {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+  /* Ensure text appears above the background image */
   color: var(--white);
-  font-size: 20px;
+  /* Adjust as needed */
+  text-align: center;
+  font-size: 80px;
+  width: 100%;
+  /* Set to the width you want for your text */
+}
+
+.hero-text h1 {
+  color: var(--white);
 }
 
 /* Cart */
 
+#cart.cart-visible {
+  transform: translateX(0);
+}
+
 #cart {
   position: fixed;
-  right: 0;
   top: 0;
+  right: 0;
   width: 300px;
-  background: white;
-  border: 1px solid black;
-  padding: 10px;
+  height: 100%;
+  background: var(--white);
+  border-left: 1px solid rgb(101, 101, 101);
+  /* padding: 20px; */
+  transform: translateX(100%);
+  /* Hide off-screen to the right */
+  transition: transform 0.3s ease-in-out;
+  z-index: 100;
+  /* Ensure it's above other content */
 }
+
 
 #cart.active {
   display: block;
@@ -91,6 +116,12 @@ section {
 .cart-header {
   display: flex;
   justify-content: space-between;
+  margin: 20px
+}
+
+.cart-header>h2 {
+  color: var(--blue);
+  margin-top: 20px;
 }
 
 #close-cart {
@@ -104,20 +135,128 @@ section {
   display: none;
 }
 
+#cart-btn {
+  background-color: transparent;
+  border: none;
+  color: var(--purple);
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+#cart-btn:hover {
+  cursor: pointer;
+}
+
+#cart-items {
+  margin: 0;
+  padding: 20px 0 20px 0;
+  height: auto;
+  max-height: 750px;
+}
+
+.cart-item-wrapper {
+  height: 750px;
+}
+
+#cart-items .item {
+  list-style: none;
+  background-color: var(--white);
+  transition: background-color 0.3s;
+  padding: 10px;
+
+}
+
+.item-container {
+  display: flex;
+  margin: 10px 0px 10px 0;
+}
+
+#cart-items .item:hover {
+  background-color: #e4ebf9;
+}
+
+.item-container img {
+  width: 100px;
+  border-radius: 10px;
+}
+
+.item-container .cart-text {
+  margin-top: 0;
+  margin-left: 15px;
+  text-wrap: pretty;
+  text-align: left;
+}
+
+button.remove-item {
+  background-color: transparent;
+  border: None;
+  cursor: pointer;
+  padding: 0;
+
+  font-size: 15px;
+  color: var(--blue)
+}
+
+
+div.subtotal {
+  display: flex;
+  padding: 10px;
+  justify-content: space-between;
+  position: relative;
+  margin-top: 10px;
+}
+
+div.subtotal>* {
+  margin: 0
+}
+
+div.subtotal::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  background-color: var(--black);
+  height: 1px;
+  width: 100%;
+}
+
+.calc-wrapper {
+  padding: 20px;
+}
+
+#calc-total {
+  background-color: var(--green);
+  border: none;
+  color: var(--white);
+  font-size: 20px;
+  padding: 10px 20px;
+  margin: 0 auto;
+  display: block;
+  cursor: pointer;
+}
+
+
 /* Logo */
 
 .logo {
-  height: 120px;
+  height: 78px;
   width: auto;
 }
 
 /* Navigation */
 
 nav {
-  padding: 2rem 1rem;
-  margin: 0 auto;
-  max-width: 1200px;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 2;
 
+  padding: 1rem 1rem;
+  margin: 0 auto;
+  max-width: 2000px;
+  background-color: var(--white);
+
+  transition: top 0.3s;
+  box-shadow: 0 2px 10px 0 var(--black);
 }
 
 nav ul {
@@ -130,24 +269,59 @@ nav ul {
   gap: 2rem;
 }
 
-nav li:first-child {
-  flex-basis: auto;
-  margin-right: auto;
-}
 
 nav a {
   text-decoration: none;
   display: block;
-  color: var(--white);
+  color: var(--black);
   font-size: 24px;
+
+  position: relative;
 }
 
+nav a::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: var(--black);
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.3s ease;
+}
+
+nav a:hover::after,
+nav a.active::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+nav a.active {
+  color: var(--black);
+}
+
+.nav-hidden {
+  top: -160px;
+}
+
+.nav-visible {
+  top: 0px;
+}
 
 /* 3 Popular products */
 
+#popular-products {
+  margin: 2% auto 5% auto;
+}
+
 #popular-products>h2 {
-  margin-bottom: 10px;
   font-size: 40px;
+  margin: 0 auto;
+  text-align: center;
+  margin-bottom: 20px;
+
 }
 
 
@@ -156,7 +330,8 @@ table {
   color: var(--white);
   width: 100%;
   border-collapse: collapse;
-  width: 500px;
+  width: 600px;
+  margin: 0 auto;
 }
 
 th,
@@ -166,7 +341,120 @@ td {
   text-align: left;
 }
 
+/* popular */
+.popular {
+  width: 100%;
+  background-color: var(--purple);
+  /* padding: 20px 10px; */
+}
+
+.wrapper {
+  margin: 0 auto;
+  max-width: 1200px;
+  /* padding: 140px 90px; */
+}
+
+.extra-padding {
+  padding: 80px 20px 200px 20px;
+}
+
+.wrapper>h1 {
+  color: var(--white);
+  font-size: 80px;
+  text-align: top;
+  margin-bottom: 20px;
+}
+
+
+
+/* card */
+.card-wrapper {
+  display: flex;
+  justify-content: space-between;
+}
+
+.card {
+  width: 300px;
+  background-color: var(--white);
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  margin: 10px;
+  position: relative;
+
+  border-radius: 10px;
+}
+
+.card h3 {
+  color: var(--black);
+  font-family: var(--play);
+  text-align: center;
+}
+
+.card img {
+  width: 100%;
+  display: block;
+  border-radius: 5px 5px 0 0;
+  max-height: 300px;
+}
+
+.quantity-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin: 20px 0;
+}
+
+.quantity {
+  font-size: 1.5rem;
+}
+
+.add-to-order {
+  background-color: var(--blue);
+  color: var(--white);
+  border: none;
+  padding: 10px 20px;
+  font-size: 1rem;
+  cursor: pointer;
+  width: 100%;
+  box-sizing: border-box;
+  transition: background-color 0.3s;
+  border-radius: 0 0 5px 5px;
+}
+
+.increase-quantity,
+.decrease-quantity {
+  background-color: none;
+  color: #232121;
+  border: none;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+  outline: none;
+  text-align: center;
+  line-height: 50px;
+  font-size: 16px;
+  transition: background-color 0.3s;
+}
+
+.increase-quantity:hover,
+.decrease-quantity:hover {
+  background-color: #e4e3e3;
+  /* Darker shade of black on hover for visual feedback */
+}
+
 /* Accordion FAQ */
+
+#faq {
+  margin: 10% auto 5% auto;
+}
+
+#faq h2 {
+  margin-bottom: 20px;
+  font-size: 40px;
+  text-align: center;
+  color: var(--white);
+}
 
 .accordion {
   width: 300px;
@@ -177,13 +465,14 @@ td {
 }
 
 .accordion-button {
-  width: 100%;
   text-align: left;
   background: #f1f1f1;
   border: none;
   padding: 10px;
   cursor: pointer;
   transition: background-color 0.6s ease;
+
+  font-size: 18px;
 }
 
 .accordion-button:hover,
@@ -197,6 +486,16 @@ td {
   transition: max-height 0.6s ease;
   background-color: white;
   padding: 0 10px;
+
+  font-size: 18px;
+
+}
+
+.accordion,
+.accordion-content,
+.accordion-button,
+.accordion-wrapper {
+  width: 500px;
 }
 
 .accordion-content p {
@@ -204,3 +503,11 @@ td {
   padding: 10px;
   border-top: 1px solid #eee;
 }
+
+.accordion-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin: 0 auto;
+}
+
