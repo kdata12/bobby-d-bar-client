@@ -7,15 +7,15 @@
   --aqua: #86fbfb;
   --font-size: 1.3rem;
   --mono: "Oxygen mono", monospace;
-  --play: 'Playfair Display', serif;
+  --cambria: 'Cambria'
 }
 
 
 body {
   margin: 0;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--cambria);
   margin: 110px 0 0 0;
-
+  color: var(--white);
 }
 
 .container {
@@ -119,6 +119,7 @@ input[type=submit]:hover {
   border-radius: 5px;
   background-color: #f2f2f2;
   padding: 20px;
+  color: var(--black);
 }
 
 .hours {

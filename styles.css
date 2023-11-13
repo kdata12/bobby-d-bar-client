@@ -8,6 +8,7 @@
   --font-size: 1.3rem;
   --mono: "Oxygen mono", monospace;
   --play: 'Playfair Display', serif;
+  --cambria: 'Cambria'
 }
 
 .content-container {
@@ -51,6 +52,7 @@ body {
   color: white;
   margin: 110px 0 0 0;
   height: 260px;
+  font-family: var(--cambria);
 }
 
 footer {
