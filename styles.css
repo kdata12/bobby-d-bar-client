@@ -89,13 +89,6 @@ h3 {
   display: none;
 }
 
-th,
-td {
-  border: 1px solid black;
-  padding: 5px;
-  text-align: left;
-}
-
 
 /* sections */
 
@@ -103,7 +96,7 @@ td {
 #intro {
   margin: 50px auto;
   max-width: 1200px;
-
+  padding: 100px 0;
 }
 
 /* Logo */
@@ -193,4 +186,13 @@ nav a.active {
 
 #cart-btn:hover {
   cursor: pointer;
+}
+
+/* footer */
+
+section#foot {
+  padding: 40px;
+  background-color: var(--white);
+  color: var(--black);
+
 }
