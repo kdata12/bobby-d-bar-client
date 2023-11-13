@@ -47,7 +47,8 @@ iframe {
 }
 
 body {
-  background-color: #2E4172;
+  background-color: #403075;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
   color: white;
   margin: 110px 0 0 0;
   height: 260px;
@@ -101,6 +102,7 @@ td {
 
 
 #intro {
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
   margin: 50px auto;
   max-width: 1200px;
 
