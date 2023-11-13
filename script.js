@@ -17,4 +17,13 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
   }, false);
+
+  const current_location = window.location.href;
+  const navLinks = document.querySelectorAll('nav a')
+
+  navLinks.forEach(link => {
+    if (link.href == current_location) {
+      link.classList.add('active')
+    }
+  })
 })
