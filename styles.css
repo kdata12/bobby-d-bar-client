@@ -8,6 +8,7 @@
   --font-size: 1.3rem;
   --mono: "Oxygen mono", monospace;
   --play: 'Playfair Display', serif;
+  --cambria: 'Cambria'
 }
 
 .content-container {
@@ -52,6 +53,7 @@ body {
   color: white;
   margin: 110px 0 0 0;
   height: 260px;
+  font-family: var(--cambria);
 }
 
 footer {
@@ -90,13 +92,6 @@ h3 {
   display: none;
 }
 
-th,
-td {
-  border: 1px solid black;
-  padding: 5px;
-  text-align: left;
-}
-
 
 /* sections */
 
@@ -105,7 +100,7 @@ td {
   font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
   margin: 50px auto;
   max-width: 1200px;
-
+  padding: 100px 0;
 }
 
 /* Logo */
@@ -195,4 +190,13 @@ nav a.active {
 
 #cart-btn:hover {
   cursor: pointer;
+}
+
+/* footer */
+
+section#foot {
+  padding: 40px;
+  background-color: var(--white);
+  color: var(--black);
+
 }

@@ -8,6 +8,7 @@
   --font-size: 1.3rem;
   --mono: "Oxygen mono", monospace;
   --play: 'Playfair Display', serif;
+  --cambria: 'cambria'
 }
 
 
@@ -25,7 +26,7 @@ html {
 body {
   margin: 115px 0 0 0;
   background-color: var(--green);
-  font-family: var(--play);
+  font-family: var(--cambria);
   height: 260vh;
 }
 
@@ -385,7 +386,7 @@ td {
 
 .card h3 {
   color: var(--black);
-  font-family: var(--play);
+  font-family: inherit;
   text-align: center;
 }
 
