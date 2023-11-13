@@ -189,7 +189,7 @@ nav a.active {
 
 /* footer */
 
-section#foot {
+#foot {
   padding: 40px;
   background-color: var(--white);
   color: var(--black);
