@@ -73,17 +73,25 @@ document.addEventListener('DOMContentLoaded', () => {
   calcTotalButton.addEventListener('click', () => {
     const totalAmountBeforeTax = updateSubtotal()
     const taxRate = 0.0805;
-    const totalAmount = totalAmountBeforeTax + (totalAmountBeforeTax * taxRate)
+    const totalTax = totalAmountBeforeTax * taxRate;
+    const totalAmount = totalAmountBeforeTax + totalTax
     
     const totalElement = document.querySelector('.total');
+    const taxElement = document.querySelector('.cart-section')
 
     if (totalElement) {
       totalElement.innerHTML = `
         <h4>Total</h4>
         <p>$${totalAmount.toFixed(2)}</p>
       `;
-
       totalElement.classList.add('subtotal')
+      
+
+      taxElement.innerHTML = `
+        <h4>Tax</h4>
+        <p>$${totalTax.toFixed(2)}</p>
+      `
+
     }
 
   })

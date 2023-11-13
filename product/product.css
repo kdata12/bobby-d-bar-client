@@ -147,7 +147,7 @@ section {
 }
 
 .cart-item-wrapper {
-  height: 750px;
+  height: 80%;
 }
 
 #cart-items .item {
@@ -189,6 +189,13 @@ button.remove-item {
   color: var(--blue)
 }
 
+.cart-section {
+  display: flex;
+  padding: 10px;
+  justify-content: space-between;
+  position: relative;
+  height: 50px;
+}
 
 div.subtotal {
   display: flex;
