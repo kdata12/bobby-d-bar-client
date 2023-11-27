@@ -1,5 +1,7 @@
 // EVENT LISTENERS
 
+const SERVER_ENDPOINT = 'http://localhost:3000'
+
 document.addEventListener('DOMContentLoaded', () => {
   const cartBtn = document.getElementById('cart-btn');
   const cart = document.getElementById('cart');
@@ -91,10 +93,36 @@ document.addEventListener('DOMContentLoaded', () => {
         <h4>Tax</h4>
         <p>$${totalTax.toFixed(2)}</p>
       `
-
     }
-
   })
+
+  fetch(`${SERVER_ENDPOINT}/product`)
+  .then(response => response.json())
+  .then(data => {
+    const cardWrapper = document.querySelector('.card-wrapper');
+    cardWrapper.innerHTML = ''; // Clear existing content
+
+    data.forEach(product => {
+      const cardHtml = `
+        <div class="card">
+          <img src="../assets/${product.name.toLowerCase().replace(/\s+/g, '-')}.jpeg" alt="${product.name}" class="card-image" />
+          <h3>${product.name}</h3>
+          <div class="quantity-wrapper">
+            <button class="decrease-quantity">-</button>
+            <span class="quantity">1</span>
+            <button class="increase-quantity">+</button>
+          </div>
+          <button class="add-to-order" data-price="${product.price}" data-total="0">Add to my order $${product.price}</button>
+        </div>
+      `;
+
+      cardWrapper.innerHTML += cardHtml;
+    });
+  })
+  .catch(error => {
+    console.error('Error fetching products:', error);
+    // Handle error or show a message to the user
+  });
 
 });
 
