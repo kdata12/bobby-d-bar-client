@@ -144,8 +144,9 @@ document.addEventListener('DOMContentLoaded', () => {
       })
     })
     .then(response => response.json())
-    .then(data => {
-      console.log("successfully placed order", data)
+    .then(responseData => {
+      console.log("successfully placed order", responseData)
+      alert(`Thanks for ordering! Your number is order #${responseData.data.orderId}`)
     })
     .catch(error => {
       console.error('Error placing order:', error);
