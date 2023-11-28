@@ -5,7 +5,7 @@ items_in_cart = {} // "productName: {"total": 0, "quantity": 0}"
 
 
 document.addEventListener('DOMContentLoaded', () => {
-  fetch(`${SERVER_ENDPOINT}/api/product`)
+  fetch(`${SERVER_ENDPOINT}/api/product?isPopular=true`)
     .then(response => response.json())
     .then(data => {
       const cardWrapper = document.querySelector('.card-wrapper');
@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
       data.forEach(product => {
         const cardHtml = `
           <div class="card">
-            <img src="../assets/${product.name.toLowerCase().replace(/\s+/g, '-')}.jpeg" alt="${product.name}" class="card-image" />
+            <img src="../assets/${product.name.toLowerCase().replace(/\s+/g, '-')}.jpeg" alt="${product.name}" class="card-image" width="300" height="300" />
             <h3>${product.name}</h3>
             <div class="quantity-wrapper">
               <button class="decrease-quantity">-</button>
@@ -33,6 +33,36 @@ document.addEventListener('DOMContentLoaded', () => {
       console.error('Error fetching products:', error);
     });
 
+    fetch(`${SERVER_ENDPOINT}/api/product?isPopular=false`)
+    .then(response => response.json())
+    .then(data => {
+      console.log(data)
+      const cardWrapper = document.querySelector('.card-wrapper.menu');
+      console.log(cardWrapper)
+      cardWrapper.innerHTML = ''; // Clear existing content
+
+      data.forEach(product => {
+        const cardHtml = `
+          <div class="card">
+            <img src="../assets/${product.name.toLowerCase().replace(/\s+/g, '-')}.jpeg" alt="${product.name}" class="card-image" width="300" height="300" />
+            <h3>${product.name}</h3>
+            <div class="quantity-wrapper">
+              <button class="decrease-quantity">-</button>
+              <span class="quantity">1</span>
+              <button class="increase-quantity">+</button>
+            </div>
+            <button class="add-to-order" data-price="${product.price}" data-total="${product.price}">Add to my order $${product.price}</button>
+          </div>
+        `;
+        cardWrapper.innerHTML += cardHtml;
+      });
+
+      attachEventListenersToButtons();
+    })
+    .catch(error => {
+      console.error('Error fetching products:', error);
+    });
+    
   const cartBtn = document.getElementById('cart-btn');
   const cart = document.getElementById('cart');
 
