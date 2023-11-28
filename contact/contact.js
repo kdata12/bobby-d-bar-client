@@ -1,3 +1,5 @@
+const SERVER_ENDPOINT = 'http://localhost:3000'
+
 document.addEventListener('DOMContentLoaded', () => {
     let lastScrollTop = 0;
     const nav = document.querySelector('nav');
@@ -26,6 +28,38 @@ document.addEventListener('DOMContentLoaded', () => {
         link.classList.add('active')
       }
     })
+
+    const contactForm = document.querySelector('form');
+    contactForm.addEventListener('submit', function(event) {
+      event.preventDefault();
+  
+
+      const formData = {
+        username: document.getElementById('uname').value,
+        fullName: document.getElementById('fname').value,
+        email: document.getElementById('email').value,
+        address: document.getElementById('Address').value,
+        paymentMethod: document.getElementById('paymentMethod').value,
+        message: document.getElementById('message').value
+      };
+  
+      fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData)
+      })
+      .then(response => response.json())
+      .then(data => {
+        alert('Contact information submitted successfully.');
+        contactForm.reset();
+      })
+      .catch((error) => {
+        console.error('Error:', error);
+        alert('An error occurred while submitting the form.');
+      });
+    });
 })
 
 let saveFile = () => {
