@@ -45,12 +45,17 @@ iframe {
 }
 
 body {
+<<<<<<< HEAD
+    background-color: var(--green);
+    color: white;
+=======
   background-color: #403075;
   font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
   color: white;
   margin: 110px 0 0 0;
   height: 260px;
   font-family: var(--cambria);
+>>>>>>> 3d706c9acfefeab9d4803e8384d64b65d8b9e9a4
 }
 
 footer {
