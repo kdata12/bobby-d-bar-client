@@ -10,7 +10,6 @@ document.addEventListener('DOMContentLoaded', () => {
     .then(data => {
       const cardWrapper = document.querySelector('.card-wrapper');
       cardWrapper.innerHTML = ''; // Clear existing content
-
       data.forEach(product => {
         const cardHtml = `
           <div class="card">
@@ -21,7 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
               <span class="quantity">1</span>
               <button class="increase-quantity">+</button>
             </div>
-            <button class="add-to-order" data-price="${product.price}" data-total="${product.price}">Add to my order $${product.price}</button>
+            <button class="add-to-order" data-price="${product.price}" data-total="${product.price}" data-productid="${product.id}">Add to my order $${product.price}</button>
           </div>
         `;
         cardWrapper.innerHTML += cardHtml;
@@ -51,7 +50,7 @@ document.addEventListener('DOMContentLoaded', () => {
               <span class="quantity">1</span>
               <button class="increase-quantity">+</button>
             </div>
-            <button class="add-to-order" data-price="${product.price}" data-total="${product.price}">Add to my order $${product.price}</button>
+            <button class="add-to-order" data-price="${product.price}" data-total="${product.price}" data-productid="${product.id}">Add to my order $${product.price}</button>
           </div>
         `;
         cardWrapper.innerHTML += cardHtml;
@@ -111,10 +110,65 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   })
 
+  // Scrolling
+  let lastScrollTop = 0;
+  const nav = document.querySelector('nav');
+  const navHeight = nav.offsetHeight; // Get the height of the navigation bar
+
+  window.addEventListener("scroll", () => {
+    let currentScroll = window.scrollY || document.documentElement.scrollTop;
+
+    if (currentScroll > lastScrollTop && currentScroll > navHeight) {
+      // Scrolling Down
+      nav.classList.remove('nav-visible');
+      nav.classList.add('nav-hidden');
+    } else {
+      // Scrolling Up
+      nav.classList.remove('nav-hidden');
+      nav.classList.add('nav-visible');
+    }
+    lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
+  }, false);
+
+  const placeOrderButton = document.querySelector('#place-order')
+
+  placeOrderButton.addEventListener('click', () => {
+    fetch(`${SERVER_ENDPOINT}/api/order`,{
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        order: items_in_cart,
+        orderTotal: getOrderTotal(),
+      })
+    })
+    .then(response => response.json())
+    .then(data => {
+      console.log("successfully placed order", data)
+    })
+    .catch(error => {
+      console.error('Error placing order:', error);
+    }); 
+  })
+
 });
 
 
 // FUNCTIONS AND OPERATIONS
+
+function getOrderTotal() {
+  let subtotal = 0
+  Object.values(items_in_cart).forEach(item => {
+    subtotal += item.total;
+  });
+
+  const taxRate = 0.0805;
+  const totalTax = subtotal * taxRate;
+  const totalAmount = subtotal + totalTax
+
+  return totalAmount
+}
 
 function attachEventListenersToButtons() {
   const increaseQuantityButtons = document.getElementsByClassName('increase-quantity');
@@ -151,13 +205,13 @@ function attachEventListenersToButtons() {
       const card = event.target.closest('.card');
       const quantityElement = card.querySelector('.quantity');
       let currentQuantity = parseInt(quantityElement.textContent, 10);
-
+  
       const pricePerItem = parseFloat(button.dataset.price);
       const productName = card.querySelector('h3').textContent;
-
       const product_image = card.querySelector('img').src;
-
-      addToCart(productName, currentQuantity, pricePerItem, product_image);
+      const product_id = button.dataset.productid; 
+  
+      addToCart(productName, currentQuantity, pricePerItem, product_image, product_id);
     });
   });
 }
@@ -169,7 +223,7 @@ function updateAddToOrderButton(button, quantity) {
   button.setAttribute('data-total', totalPrice.toFixed(2));
 }
 
-function addToCart(productName, quantity, price, product_image) {
+function addToCart(productName, quantity, price, product_image, product_id) {
   const cartItems = document.getElementById('cart-items');
   
   if (items_in_cart[productName]) {
@@ -182,7 +236,8 @@ function addToCart(productName, quantity, price, product_image) {
   } else {
     items_in_cart[productName] = {
       quantity: quantity,
-      total: price * quantity
+      total: price * quantity,
+      id: parseInt(product_id)    
     };
 
     const listItem = document.createElement('li');
@@ -246,24 +301,3 @@ document.querySelectorAll('.accordion-button').forEach(button => {
     }
   });
 });
-
-
-// Scrolling
-let lastScrollTop = 0;
-const nav = document.querySelector('nav');
-const navHeight = nav.offsetHeight; // Get the height of the navigation bar
-
-window.addEventListener("scroll", () => {
-  let currentScroll = window.scrollY || document.documentElement.scrollTop;
-
-  if (currentScroll > lastScrollTop && currentScroll > navHeight) {
-    // Scrolling Down
-    nav.classList.remove('nav-visible');
-    nav.classList.add('nav-hidden');
-  } else {
-    // Scrolling Up
-    nav.classList.remove('nav-hidden');
-    nav.classList.add('nav-visible');
-  }
-  lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
-}, false);
