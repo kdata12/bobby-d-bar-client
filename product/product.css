@@ -83,6 +83,10 @@ section {
 
 /* Cart */
 
+#order-email {
+  list-style: none;
+}
+
 #cart.cart-visible {
   transform: translateX(0);
 }

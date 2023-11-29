@@ -25,7 +25,6 @@ document.addEventListener('DOMContentLoaded', () => {
         `;
         cardWrapper.innerHTML += cardHtml;
       });
-
       attachEventListenersToButtons();
     })
     .catch(error => {
@@ -56,7 +55,6 @@ document.addEventListener('DOMContentLoaded', () => {
         cardWrapper.innerHTML += cardHtml;
       });
 
-      attachEventListenersToButtons();
     })
     .catch(error => {
       console.error('Error fetching products:', error);
@@ -131,8 +129,10 @@ document.addEventListener('DOMContentLoaded', () => {
   }, false);
 
   const placeOrderButton = document.querySelector('#place-order')
-
+  
   placeOrderButton.addEventListener('click', () => {
+    const orderEmail = document.querySelector('#email').value
+    console.log(orderEmail)
     fetch(`${SERVER_ENDPOINT}/api/order`,{
       method: 'POST',
       headers: {
@@ -141,12 +141,13 @@ document.addEventListener('DOMContentLoaded', () => {
       body: JSON.stringify({
         order: items_in_cart,
         orderTotal: getOrderTotal(),
+        orderEmail
       })
     })
     .then(response => response.json())
     .then(responseData => {
       console.log("successfully placed order", responseData)
-      alert(`Thanks for ordering! Your number is order #${responseData.data.orderId}`)
+      alert(`Thanks for ordering! Your number is order #${responseData.data.orderId} with email ${orderEmail}`)
     })
     .catch(error => {
       console.error('Error placing order:', error);
